@@ -42,16 +42,16 @@ function Index() {
 
 	const onDragMove = (event) => {
 		if (dragPosition === undefined) return;
-		console.log(
-			"drag position",
-			dragPosition,
-			"touch position",
-			touchPosition(event).pageY
-		);
+		// console.log(
+		// 	"drag position",
+		// 	dragPosition,
+		// 	"touch position",
+		// 	touchPosition(event).pageY
+		// );
 		const y = touchPosition(event).pageY;
 		const deltaY = dragPosition - y;
 		const deltaHeight = (deltaY / window.innerHeight) * 100;
-		console.log("delta height", deltaHeight, "sheet height", sheetHeight);
+		// console.log("delta height", deltaHeight, "sheet height", sheetHeight);
 		setSheetHeight(sheetHeight + deltaHeight);
 		dragPosition = y;
 	};
@@ -107,7 +107,7 @@ function Index() {
 	return (
 		<div className={`h-screen w-screen bg-black text-white overflow-hidden`}>
 			<div className='h-full overflow-auto --'>
-				<div className='overflow-auto p-10' style={{ height: "200vh" }}>
+				<div className='overflow-auto p-10'>
 					<button
 						type='button'
 						id='open-sheet'
@@ -163,7 +163,7 @@ function Index() {
 
 					<main
 						className='w-screen max-w-7xl overflow-y-auto flex flex-col items-start p-3'
-						ref={sheetContents} 
+						ref={sheetContents}
 						style={{ height: `${sheetHeight}vh` }}
 					>
 						<div className='h-20'></div>
